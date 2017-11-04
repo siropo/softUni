@@ -1,0 +1,11 @@
+.focus-div {
+    margin: 3px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.active {
+    background: red;
+}
