@@ -5,7 +5,9 @@ class Form extends Component {
         super(props)
         this.state = {
             name: '',
-            password: ''
+            password: '',
+            bio: '',
+            make: 'pesho'
         }
 
         this.onChangeInput = this.onChangeInput.bind(this);
@@ -30,9 +32,25 @@ class Form extends Component {
                         type="text"
                         name="name"
                         value={this.state.name} />
+                    <br />
                     <input name="password" type="password"
                         onChange={this.onChangeInput}
                         value={this.state.password} />
+                    <br />
+                    <textarea name="bio" id=""
+                        onChange={this.onChangeInput}
+                        value={this.state.bio}
+                        cols="30" rows="10">
+                    </textarea>
+                    <br />
+                    <select name="make"
+                        value={this.state.make}
+                        onChange={this.onChangeInput}
+                        id="">
+                        <option value="pesho">pesho</option>
+                        <option value="gosho">gosho</option>
+                    </select>
+                    <br />
                     <input type="submit" value="submit" />
                 </form>
             </div>
