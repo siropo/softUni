@@ -6,15 +6,25 @@ import Input from './components/Form/Form';
 import Converter from './components/Converter/Converter';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: true
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <Converter />
+        {this.state.value ? <Converter /> : 'Hide'}
+
         <Input />
-        <FocusDiv num="1" />
-        <FocusDiv num="2" />
-        <FocusDiv num="3" />
-        <FocusDiv num="4" />
+        {[1, 2, 3, 4].map((n, i) => {
+          return <FocusDiv key={i} num={n}>
+            <p>Hello from children {n}</p>
+          </FocusDiv>
+        })}
         <Button />
       </div>
     );
