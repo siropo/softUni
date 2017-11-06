@@ -39,8 +39,21 @@ const NotFound = props => (
 const Dashboard = props => (
   <div>
     <h1>Dashboard</h1>
+    {props.data}
   </div>
 )
+
+function withData(WrappedComponent, data) {
+  class WithData extends Component {
+    render() {
+      return (<WrappedComponent data={data}/>)
+    }
+  }
+
+  return WithData;
+}
+
+const DashboardWithData = withData(Dashboard, "some data");
 
 class App extends Component {
 
@@ -69,14 +82,12 @@ class App extends Component {
             }
           }}/>
           <Route path="/dashboard" component={Dashboard}/>
+          <Route path="/dashboarddata" component={DashboardWithData}/>
           <Route path="/details/:userName" component={User}/>
-          <Route
-            path="/about"
-            render={(props) => {
-            return <About props={props} data="pesho"/>
-          }}/>
           <Route component={NotFound}/>
         </Switch>
+        <Dashboard data="first data"/>
+        <DashboardWithData/>
       </div>
     );
   }
