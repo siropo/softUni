@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Header from './components/Header';
+import Form from './components/Form/Form';
 
 const About = props => (
   <div>
@@ -69,6 +70,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        <Form />
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/home" component={Home}/>
